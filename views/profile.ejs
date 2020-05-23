@@ -1,0 +1,114 @@
+<%- include ('partials/header') %>
+<div class="container-fluid">
+<div class="row">
+    <div class="d-none d-sm-none d-md-none d-lg-block col-lg-2 list-group-flush p-0">
+            <li class="list-group-item bg-warning text-light text-center"><img src="/images/avatar.png" class="logo mr-2">PROFILE</li>
+            <a href="#" class="list-group-item listYellow"><img src="/images/gallery.png" class="logo mr-2">Gallery</a>
+            <a href="#" class="list-group-item listYellow"><img src="/images/music.png" class="logo mr-2">Music Room</a>
+            <a href="#" class="list-group-item listYellow"><img src="/images/music.png" class="logo mr-2">Movies Counter</a>
+            <a href="#" class="list-group-item listYellow"><img src="/images/music.png" class="logo mr-2">Sports</a>
+        <% if(currentUser && member.author.id.equals(currentUser._id)){ %>
+            <a href="/allmembers/<%= member._id %>/edit" class="list-group-item text-primary"><img src="/images/setting.png" class="logo mr-2">Personalize</a>
+        <% } %>
+    </div>
+    <div class="col-lg-8 p-0">
+<!------------------------ PROFILE --------------------------->
+        <div class="card ">
+            <img src="/images/IMG_20200202_025526.jpg" class="body-img-top" id="coverPhoto">
+            <div class="card-body" role="group" aria-label="">
+                <img class="dp img-thumbnail" src="/uploads/<%= member.author.image %>" >
+                <h2 class="username"><%= member.author.username %><label class="h5">,<%= member.nickname %></label></h2>
+                <h4 class="m-0">
+                    Age: <label class="text-primary h5"> <%= moment().diff(member.dob, 'years') %></label>
+                </h4>
+                <h4 class="h4">
+                    Email:
+                    <a href="#" class="text-decoration-none h5"><%= member.author.email %></a>
+                </h4>
+                <h4>
+                    Contact: <label class="text-primary"><%= member.phoneno %></label>
+                </h4>
+            </div>
+        </div>
+<!------------------------CREATE POST --------------------------->
+<% if(currentUser && member.author.id.equals(currentUser._id)){ %>
+    <div class="card">
+        <div class="card-body pt-1">
+            <lable class="h6">Create POST</lable>
+            <form action="/allmembers/<%= member.id %>" method="POST" role="form" enctype="multipart/form-data">
+                <textarea class="float-left from-control mb-1 p-2" name="text" cols="105" rows="8" placeholder="Write Something..."></textarea>
+                <input type="file" name="file" class="bg-light border w-75">
+                <button class="float-right btn btn-primary btn-sm rounded-0 px-3">POST!</button>
+            </form>
+        </div>
+    </div>
+<% } %>
+<!------------------------ POST --------------------------->
+<% member.posts.forEach(function(comment){ %>
+        <div class="card my-3">
+            <div class="container mt-2">
+                <div class="w-100 float-left">
+                <table class="float-left mb-2">
+                    <tr>
+                        <th rowspan="2" class="pr-2"><img src="/uploads/<%= member.author.image %>" id="hole"></th>
+                        <th><%= member.author.username %></th>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-lighter"><%= comment.created.toDateString() %></td>
+                    </tr>
+                </table>
+                <% if(currentUser && member.author.id.equals(currentUser._id)){ %>
+                <div class="dropdown float-right">
+                    <img type="button" src="/images/setting.png" class="header_logo dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                    <ul class="dropdown-menu dropdown-menu-lg-right list-group-flush m-0 p-0" aria-labelledby="dropdownMenuButton">
+                        <button href="#" class="list-group-item p-2 font-weight-bold listPrimary w-100"><img src="/images/edit.png" class="logo float-left ml-3"> Edit Post</button>
+                        <form action="/posts/<%= comment.id %>?_method=DELETE" method="POST">
+                            <button class="list-group-item font-weight-bold listRed w-100"><img src="/images/delete.png" class="logo float-left">Delete</button>
+                        </form>
+                    </ul>
+                </div>
+                <% } %>
+                </div>
+                <p class="h6 font-weight-normal"><%= comment.text %></p>
+                <div class="card-body pt-0">
+                    <img src="/uploads/<%= comment.postimage %>" id="post">
+                </div>
+                <div class="row mb-3">
+                    <a href="#" class="col-sm-6 col-lg-3 font-weight-bold text-decoration-none text-dark border mx-auto py-2">
+                      <img src="/images/like.png" class="post_reaction"> Like
+                    </a>
+                    <a href="#" class="col-sm-6 col-lg-3 font-weight-bold text-decoration-none text-dark border py-2 ">
+                      <img src="/images/comment.png" class="post_reaction_comment"> Comments
+                    </a>
+                    <a href="#" class="col-lg-3 font-weight-bold text-decoration-none text-dark border mx-auto py-2 d-none d-sm-none d-md-none d-lg-block">
+                      <img src="/images/fileShare.png" class="post_reaction"> Share
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+<!----------------- side bar ------------------>
+    <div class="d-none d-sm-none d-md-none d-lg-block col-lg-2 p-0">
+        <ul class="list-group-flush m-0">
+            <li class="list-group-item bg-success text-light text-center">Social</li>
+            <a href="#" class="list-group-item listRed"><img src="/images/gmailColor.png" class="logo mr-2"> Gmail</a>
+            <a href="#" class="list-group-item listGreen"><img src="/images/whatsappColor.png" class="logo mr-2"> Whatsapp</a>
+            <a href="#" class="list-group-item listPink"><img src="/images/instagramColor.png" class="logo mr-2">Instagram</a>
+            <a href="#" class="list-group-item listBlue"><img src="/images/facebookColor.png" class="logo mr-2">Facebook</a>
+            <a href="#" class="list-group-item listYellow"><img src="/images/snapchatColor.png" class="logo mr-2">Snapchat</a>
+            <a href="#" class="list-group-item listPrimary"><img src="/images/twitterColor.png" class="logo mr-2">Twitter</a>
+        </ul>
+        <ul class="list-group-flush">
+            <li class="list-group-item bg-info text-light text-center">Web connection</li>
+            <a href="#" class="list-group-item listBlue"><img src="/images/linkedinColor.png" class="logo mr-2">Linkedin</a>
+            <a href="#" class="list-group-item listRed"><img src="/images/pinterestColor.png" class="logo mr-2">Pinterest</a>
+            <a href="#" class="list-group-item listBlack"><img src="/images/git-hub.png" class="logo mr-2">Git-Hub</a>
+            <a href="#" class="list-group-item listGreen"><img src="/images/hacker-rank.png" class="logo mr-2">Hackathon</a>
+            <a href="#" class="list-group-item listYellow"><img src="/images/dsc.png" class="logo mr-2">DSC Kiit</a>
+            <a href="/sap" class="list-group-item listGreen"><img src="/images/kiitlogo.png" class="logo mr-2">SAP Potal</a>
+        </ul>
+    </div>
+</div>
+</div>
+<%- include ('partials/footer') %>

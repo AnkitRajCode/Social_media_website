@@ -1,0 +1,51 @@
+<%- include ('partials/header') %>
+<div class="container">
+    <table class="table border mt-4 shadow">
+        <tr>
+            <th class="pl-5">Name</th>
+            <th class="float-right mr-4">Server Control</th>
+        </tr>
+        <% members.forEach(function(member){ %>
+        <tr>
+            <td class="w-25">
+                <a href="/allmembers/<%= member._id %>" class="h6 text-decoration-none listPrimary"><img src="/uploads/<%= member.author.image %>" id="hole"> <%= member.author.username %>,<%= moment().diff(member.dob, 'years') %></a>
+            </td>
+            <td class="w-75">
+                <a class="float-right rounded-0 btn btn-sm btn-primary" data-toggle="collapse" href="#multiCollapseExample<%= member.phoneno %>" role="button" aria-expanded="false" aria-controls="multiCollapseExample<%= member.phoneno %>">
+                    More Details
+                </a>
+                <% if(currentUser && member.author.id.equals(currentUser._id)){ %>
+                    <form action="/delete/<%= member.id %>?_method=DELETE" method="POST">
+                        <button class="float-right rounded-0 btn btn-sm btn-danger mr-2"><img src="/images/delete.png" class="header_logo mb-1"> Delete</button>
+                    </form>
+                <% }%>
+                <div class="collapse multi-collapse float-left" id="multiCollapseExample<%= member.phoneno %>">
+                    <table>
+                        <tr>
+                            <td><a href="#" class="h6 text-decoration-none listYellow text-transformation-uppercase"><img src="/images/avatar.png" class="logo"> <%= member.nickname %></a></td>
+                            <td><a href="#" class="h6 text-decoration-none listYellow"><img src="/images/home.png" class="logo"> <%= member.roomno %> </a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="h6 text-decoration-none listYellow text-transformation-uppercase"><img src="/images/home.png" class="logo"><%= member.address %></a></td>
+                            <td><a href="#" class="h6 text-decoration-none listBlue"><img src="/images/linkedinColor.png" class="logo"> <%= member.linkedin %></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="h6 text-decoration-none listRed"><img src="/images/gmailColor.png" class="logo"> <%= member.author.email %></a></td>
+                            <td><a href="#" class="h6 text-decoration-none listRed"><img src="/images/gmailColor.png" class="logo"> <%= member.kiitmail %></a></td>
+                        </tr>
+                        <tr>
+                            <td> <a href="#" class="h6 text-decoration-none listBlack"><img src="/images/phone.png" class="logo"> <%= member.phoneno %></a></td>
+                            <td><a href="#" class="h6 text-decoration-none listGreen"><img src="/images/whatsappColor.png" class="logo"> <%= member.whatsapp %></a></td>
+                        </tr>
+                        <tr>
+                            <td> <a href="#" class="h6 text-decoration-none listPrimary"><img src="/images/facebookColor.png" class="logo"> <%= member.facebook %></a></td>
+                            <td><a href="#" class="h6 text-decoration-none listPink"><img src="/images/instagramColor.png" class="logo"> <%= member.instagram %> </a></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</div>
+<%- include ('partials/footer') %>

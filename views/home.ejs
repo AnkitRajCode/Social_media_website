@@ -1,0 +1,98 @@
+<%- include ('partials/header') %>
+<div class="jumbotron rounded-0 m-0" id="jumbotron">
+    <h3 class="text-light mt-4">
+        Welcome to BB!
+    </h3>
+    <a href="/register" class="btn btn-sm btn-warning px-2 font-weight-bold"><img src="/images/signup.png" class="logo"> Join Us!</a>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="swiper-container bg-dark">
+            <div class="swiper-wrapper">
+                <% members.forEach(function(member){ %>
+                    <div class="swiper-slide card">
+                        <img src="/uploads/<%= member.author.image %>" class="body-img-top" id="body-img-top">
+                        <div class="card-body">
+                            <h5><%= member.author.username %>, <lable class="h6 font-weight-normal text-primary"><%= moment().diff(member.dob, 'years') %></lable></h5>
+                            <a href="/allmembers/<%= member._id %>" class="btn btn-sm btn-primary">Visit Profile!</a>
+                            <div class="dropdown" id="display">
+                                <button class="btn btn-sm btn-success" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Chat
+                                </button>
+                                <ul class="dropdown-menu list-group-flush m-0 p-0" aria-labelledby="dropdownMenuButton">
+                                    <a href="#" class="list-group-item p-1 font-weight-normal listGreen"><img src="/images/whatsappColor.png" class="logo mx-2"> Whatsapp</a>
+                                    <a href="#" class="list-group-item p-1 font-weight-normal listPink"><img src="/images/instagramColor.png" class="logo mx-2">Instagram</a>
+                                    <a href="#" class="list-group-item p-1 font-weight-normal listPrimary"><img src="/images/messenger.png" class="logo mx-2">Messenger</a>
+                                    <a href="#" class="list-group-item p-1 font-weight-normal listYellow"><img src="/images/snapchatColor.png" class="logo mx-2">Snapchat</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row my-3">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card_background shadow">
+                <div class="card-body">
+                <h5 class="card-title text-light"><img src="/images/gallerySvg.svg" class="logo mr-2">Gallery</h5>
+                <br><br><br>
+                <div class="btn btn-sm btn-warning rounded-0">View more!</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card_background shadow">
+                <div class="card-body">
+                <h5 class="card-title text-light"><img src="/images/musicSvg.svg" class="logo mr-2">Musics</h5>
+                <br><br><br>
+                <div class="btn btn-sm btn-warning rounded-0">View more!</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card_background shadow">
+                <div class="card-body">
+                <h5 class="card-title text-light"><img src="/images/kiitlogo.png" class="logo mr-2">Official Work</h5>
+                <br><br><br>
+                <a href="/sap" class="btn btn-sm btn-warning rounded-0">View more!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card card_background shadow">
+                <div class="card-body">
+                <h5 class="card-title text-light">All members</h5>
+                <br><br><br>
+                <!-- <p class="card-text">With supporting text below as a natural lead-in to additional.</p> -->
+                <a href="/home/server/allmembers" class="btn btn-sm btn-warning rounded-0">View more!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 40,
+        modifier: 5,
+        slideShadows : true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+<%- include ('partials/footer') %>

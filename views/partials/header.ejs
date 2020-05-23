@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo2.png">
+    <link rel="stylesheet" type="text/css" href="/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Balconi Bakchodi</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <img src="/images/logo.png" id="logo">
+        <a href="/allmembers" class="navbar-brand">Balconi Bakchodi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto" >
+                <li class="nav-item">
+                    <a href="/allmembers" class="nav-link active">Home</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="/bakchodi" class="nav-link active">Bakchodi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link active">About</a>
+                </li>
+                <% if(!currentUser){ %>
+                    <li class="nav-item">
+                        <a href="/login" class="mt-1 active btn btn-sm btn-warning font-weight-normal rounded-0"><img src="/images/login.png" class="header_logo"> LogIn</a>
+                    </li>
+                <% }else{ %>
+                    <div class="btn-group d-none d-sm-none d-md-none d-lg-block">
+                        <img type="button" src="/uploads/<%= currentUser.image %>" id="hole" class="btn p-0 btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu dropdown-menu-lg-right p-0">
+                            <div class="card shadow">
+                                <img src="/images/IMG_20200202_025526.jpg" class="card-img-top">
+                                <a class="dropdown-item h5" href="#"><%= currentUser.username %></a>
+                                <h6 class="dropdown-item"><%= currentUser.email %></h6>
+                                <div class="d-flex card-footer p-1">
+                                    <a href="/home/server/allmembers" class="btn btn-sm btn-info rounded-0 "><img src="/images/setting.png" class="header_logo"> Members</a>
+                                    <a href="/logout" class="btn btn-sm btn-danger ml-auto rounded-0 "><img src="/images/logout.png" class="header_logo"> Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <li class="nav-item">
+                        <a href="/logout" class="mt-1 active btn btn-sm btn-danger rounded-0 d-sm-block d-lg-none">
+                            <img src="/images/logout.png" class="header_logo"> Logout
+                        </a>
+                    </li>
+                <% } %> 
+            </ul>
+        </div>
+    </nav> 

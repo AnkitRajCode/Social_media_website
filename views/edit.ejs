@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+<div class="container-fluid bg-dark float-left">
+    <form action="/allmembers/<%= member._id %>?_method=PUT" method="POST">
+        <div class="row my-4">
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Nickname</label>
+                <input type="text" name="member[nickname]" value="<%= member.nickname %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 ">Address</label>
+                <input type="text" name="member[address]" value="<%= member.address %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Room No</label>
+                <input type="text" name="member[roomno]" value="<%= member.roomno %>" class="form-control col-md-9">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2">Section</label>
+                <input type="text" name="member[section]" value="<%= member.section %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 ">KIIT mail</label>
+                <input type="text" name="member[kiitmail]" value="<%= member.kiitmail %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2">Git-Hub</label>
+                <input type="text" name="member[github]" value="<%= member.github %>" class="form-control col-md-9">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Phone No</label>
+                <input type="number" name="member[phoneno]" value="<%= member.phoneno %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2">Whatsapp</label>
+                <input type="number" name="member[whatsapp]" value="<%= member.whatsapp %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 ">Instagram</label>
+                <input type="text" name="member[instagram]" value="<%= member.instagram %>" class="form-control col-md-9">
+            </div>
+        </div> 
+        <div class="row mb-4">
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Twitter</label>
+                <input type="text" name="member[twitter]" value="<%= member.twitter %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2">SnapChat</label>
+                <input type="text" name="member[snapchat]" value="<%= member.snapchat %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 ">Facebook</label>
+                <input type="text" name="member[facebook]" value="<%= member.facebook %>" class="form-control col-md-9">
+            </div>
+        </div> 
+        <div class="row mb-4">
+            <div class="col-md-4 row">
+                <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Linkedin</label>
+                <input type="text" name="member[linkedin]" value="<%= member.linkedin %>" class="form-control col-md-9">
+            </div>
+            <div class="col-md-4 row">
+                <button class="btn btn-sm btn-primary ml-auto rounded-0">Update Account</button>
+            </div>
+        </div> 
+    </form>
+</div>
+<%- include('partials/footer') %>

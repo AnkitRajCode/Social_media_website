@@ -1,0 +1,13 @@
+<%- include('partials/header') %>
+<div id="signUp">
+    <div class="container">
+        <div class="formBox mt-5">
+            <form action="/register?_method=PUT" method="POST"  role="form" enctype="multipart/form-data">
+                <input type="text" name="user[username]" class="form-control mb-3" value="<%= members.username %>">
+                <input type="email" name="user[email]" class="form-control mb-3" value="<%= members.email %>">
+                <button class="btn btn-sm btn-secondary">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') %>

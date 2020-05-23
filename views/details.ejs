@@ -1,0 +1,79 @@
+<%- include('partials/header') %>
+<div id="signUp">
+    <div class="container-fluid">
+        <div class="">
+            <form action="/allmembers" method="POST">
+                <div class="row my-4">
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Nickname</label>
+                        <input type="text" name="nickname" placeholder="Nickname" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2">DOB</label>
+                        <input type="date" name="dob" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 ">Address</label>
+                        <input type="text" name="address" placeholder="Address" class="form-control col-md-9">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Room No</label>
+                        <input type="text" name="roomno" placeholder="Room Number + Hostel Name" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2">Section</label>
+                        <input type="text" name="section" placeholder="Section" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 ">KIIT Mail</label>
+                        <input type="text" name="kiitmail" placeholder="Kiit email" class="form-control col-md-9">
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Phone No</label>
+                        <input type="number" name="phoneno" placeholder="Contact No" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2">Whatsapp</label>
+                        <input type="number" name="whatsapp" placeholder="Whatsapp No" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 ">Instagram</label>
+                        <input type="text" name="instagram" placeholder="Instagram User ID" class="form-control col-md-9">
+                    </div>
+                </div> 
+                <div class="row mb-4">
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Twitter</label>
+                        <input type="text" name="twitter" placeholder="Twitter User ID" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2">SnapChat</label>
+                        <input type="text" name="snapchat" placeholder="SnapChat User ID" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 ">Facebook</label>
+                        <input type="text" name="facebook" placeholder="facebook User ID" class="form-control col-md-9">
+                    </div>
+                </div> 
+                <div class="row mb-4">
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2 pl-2">Linkedin</label>
+                        <input type="text" name="linkedin" placeholder="Linkedin User ID" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <label class="col-md-3 text-light font-weight-bold pt-2">Git-Hub</label>
+                        <input type="text" name="github" placeholder="Git-Hub User ID" class="form-control col-md-9">
+                    </div>
+                    <div class="col-md-4 row">
+                        <input type="submit" value="create account" class="btn btn-sm btn-primary ml-auto">
+                    </div>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') %>

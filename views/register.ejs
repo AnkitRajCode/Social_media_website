@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+<div id="signUp">
+    <div class="container">
+        <div class="formBox mt-5">
+            <form action="/register" method="POST"  role="form" enctype="multipart/form-data">
+                <input type="text" name="username" class="form-control mb-3" placeholder="Username">
+                <input type="email" name="email" class="form-control mb-3" placeholder="Email">
+                <input type="file" name="file" class="mb-3 border p-2 w-100 bg-light">
+                <input type="password" name="password" class="form-control mb-3" placeholder="password">
+                <input type="submit" value="SignUp" class="btn btn-lg btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') %>
