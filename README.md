@@ -3,4 +3,4 @@ This project I create to Connect to my friends group privately and also make the
 This project also contain music room which is also made by me and also gallary room where they can see photos through google photos.
 They can also post there best photos with caption where people can like it and comment on it.
 Every thing they put in this website they can edit it later and delete also this feature is also implemented.
-Sometimes when i got free time I still work on it
+Sometimes whenever i got free time I still work on it
